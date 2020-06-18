@@ -7,6 +7,7 @@ import axios from 'axios';
 import $ from "jquery";
 import Educate from "./child/Educate";
 import ReactHtmlParser from 'react-html-parser'
+import ReactDOM from "react-dom";
 
 
 const code = `<div>
@@ -25,13 +26,15 @@ const ed ={
 
 
 export class Education extends Component {
+
+  
     
     constructor(props){
         super(props)
         this.onSubmit = this.onSubmit.bind(this)
-        this.consolePrint = this.consolePrint.bind(this)
-        this.appendEducation = this.appendEducation.bind(this)
-        const educater =   '<Educate ref={this.formRef}/>'
+        
+       // this.appendEducation = this.appendEducation.bind(this)
+        //const educater =   '<Educate ref={this.formRef}/>'
         //this.childRef = React.createRef();
         
         this.state={
@@ -39,101 +42,8 @@ export class Education extends Component {
         }
 
 
-    }
-
-    formRef = React.createRef();
-  
-
-
-
-
-    componentDidMount(){
-
-        const div =  $(document).ready(function(){
-            $("#remove").hide();
+            }
     
-              $('.wrapper').on('click', '#another', function() {
-                  $('#another').closest('.wrapper').find('#clone').first().clone().appendTo('.job'); 
-    
-                          $("#remove").show();
-                });
-    
-    
-             $('.wrapper').on('click', '#remove', function() {
-                  $('#remove').closest('.wrapper').find('#clone').last().remove();
-    
-                      var remBut = $('[id^=clone]').length;
-                    if(remBut<2){
-    
-                        $("#remove").hide();
-                            }
-    
-    
-    
-                });
-    
-    
-                
-        })
-    
-
-    }
- 
-    appendEducation(eduArr){
-           // const stateOf  = useRef(null);
-            //console.log(stateOf.current.focus())
-           // console.log(this.formRef.current)
-           //const textInput = useRef(null);
-          // textInput.current.focus();
-
-          const refer = this.formRef
-
-
-          console.log(refer.current.state)
-
-       
-
-                return (
-                    <div>
-                        {eduArr.map(name =>(
-
-                                <Educate 
-                                ref={this.formRef}
-                                
-                                />
-                        ))}
-         
-                        
-                    </div>
-                 )
-        
-
-
-       
-
-  
-
-
- 
-
-
-    }
-         
-      
-
-    consolePrint = (e, value) => {
-       
-        e.preventDefault();
-        const ed ={
-
-            fieldOfStudy:"Field Of Study",
-            schoolName:"School Name",
-            startDate:"Start Date",
-            gradDate:"Graduation Date",
-        }
-       value.education.push(ed);
-          
-    }
 
 
     continue = e => {
@@ -171,11 +81,7 @@ export class Education extends Component {
   
     render() {
 
-        const {value, handleChange ,handleArrayChange ,handleArray} = this.props;
-        
-        const {index} = this.state;
-        const indexState = {index};
-
+        const {value, handleChange ,addToEducationArray , popEducationArray} = this.props;
         const ed ={
 
             fieldOfStudy:"Field Of Study",
@@ -183,68 +89,27 @@ export class Education extends Component {
             startDate:"Start Date",
             gradDate:"Graduation Date",
         }
+
         return (
            <MuiThemeProvider>
                <React.Fragment>
                <div align="center">
 
-<div className="wrapper"  >
+        <div className="wrapper"  >
 
-        <div className="job">
+             <div className="job">
 
                 <div id="clone">
                 <h2 id="title"  >Education</h2>
 
-                <ul>
-                <div className="buttonc">
-						<li>
-						<input onChange={handleChange('fieldOfStudy')}  name="fos" placeholder={value.fieldOfStudy}></input>
-						</li>
-					</div>
+               <div>
+                    {value.education.map(item => (
 
-                    <div className="buttonc">
-			            <li>
-					        <input onChange={handleChange('schoolName')} name="schoolName" placeholder={value.schoolName}></input>
+                        <Educate value={item} />
 
-			            </li>
-		            </div>
+                    ))}
 
-                    <div className="buttonc">
-			<li>
-				<input onChange={handleChange('startDate')} name="startDate" placeholder={value.startDate}></input>
-				 
-
-			</li>
-		</div>
-
-		<div className="buttonc">
-			<li>
-
-					<input onChange={handleChange('gradDate')} name="endDate" placeholder={value.gradDate}></input>
-				
-
-			</li>
-		
-		</div>
-
-        <Educate 
-                                 
-                            
-                                />
-        
-
-
-            <div>{this.appendEducation(value.education)}</div>
-            
-         
- 
-
-        <div>
-
-            
-        </div>
-
-                </ul>
+               </div>
              
                 
 
@@ -259,8 +124,8 @@ export class Education extends Component {
     <button className="contback" onClick={this.back} >Back</button>
 
     <button id="another" className="conc" >+</button>
-    <button id="remove" className="conc" >-</button>
-    <button className="conc" onClick={handleArrayChange(ed , indexState)}>ADD </button>
+    <button id="remove" className="conc" onClick={popEducationArray(ed)} >-</button>
+    <button className="conc" onClick={addToEducationArray(ed , value)}>ADD </button>
 
     <button className="contback" >Continue</button>
 </div>

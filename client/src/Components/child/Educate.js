@@ -4,7 +4,7 @@ import "../css/experience.css"
 export default class Educate extends Component {
 
     constructor(props){
-        super(props)
+        super(props);
 
      
         this.state={
@@ -14,21 +14,31 @@ export default class Educate extends Component {
             startDate:"Start Date",
             gradDate:"Graduation Date",
 
-        }
+        };
 
         }
 
-
+ 
 handleChange = input => e => {
 
             this.setState({[input]: e.target.value});
     
         }
 
+
+
 render(){
 
-    const {indexState} = this.props;
 
+        const{value} = this.props;
+
+        let stat = this.state = value;
+
+        
+        //console.log(value);
+
+        console.log("HEY NOW HEY NOW");
+ 
 
     return(
 
@@ -42,20 +52,20 @@ render(){
                 <ul>
                 <div className="buttonc">
 						<li>
-						<input onChange={e => this.setState({ fieldOfStudy: e.target.value })}  name="fos" ></input>
+						<input onChange={e => stat.fieldOfStudy=e.target.value} placeholder={this.state.fieldOfStudy} name="fos" ></input>
 						</li>
 					</div>
 
                     <div className="buttonc">
 			            <li>
-					        <input onChange={e => this.setState({ schoolName: e.target.value })} name="schoolName" ></input>
+					        <input onChange={e => stat.schoolName = e.target.value } placeholder={this.state.schoolName} name="schoolName" ></input>
 
 			            </li>
 		            </div>
 
                     <div className="buttonc">
 			<li>
-				<input onChange={e => this.setState({ startDate: e.target.value })} name="startDate" ></input>
+				<input onChange={e => stat.startDate= e.target.value } placeholder={this.state.startDate} name="startDate" ></input>
 				
 
 			</li>
@@ -64,7 +74,7 @@ render(){
 		<div className="buttonc">
 			<li>
 
-					<input onChange={e => this.setState({ gradDate: e.target.value })} name="endDate" ></input>
+					<input onChange={e =>  stat.gradDate= e.target.value}placeholder={this.state.gradDate} name="endDate" ></input>
 				
 
 			</li>

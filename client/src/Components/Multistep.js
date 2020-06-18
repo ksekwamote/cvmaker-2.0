@@ -106,18 +106,26 @@ export class Multistep extends Component {
 
     }
 
-    handleArrayChange = input => e => {
-
-        const ed ={
-            
-                fieldOfStudy:"Field Of Studys",
-                schoolName:"School Names",
-                startDate:"Start Dates",
-                gradDate:"Graduation Dates"}
-
+    addToEducationArray = input => e => {
+    
         this.setState({ education: [...this.state.education, input ]})
 
     }
+
+    popEducationArray = input => e => {
+
+    if (this.state.education.length>1){
+
+        this.state.education.pop();
+
+        this.setState({education: this.state.education})
+    }
+
+    }
+
+    
+
+
 
     //retrieve state value
      getStateValue = input => e =>{
@@ -204,8 +212,8 @@ export class Multistep extends Component {
                         nextStep = {this.nextStep}
                         prevStep = {this.prevStep}
                         handleChange= {this.handleChange}
-                        handleArrayChange = {this.handleArrayChange}
-                        handleArray ={this.handleArray}
+                        addToEducationArray = {this.addToEducationArray}
+                        popEducationArray = {this.popEducationArray}
                         value={values}
                             
                             
