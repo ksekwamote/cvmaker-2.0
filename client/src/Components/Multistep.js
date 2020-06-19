@@ -20,6 +20,7 @@ export class Multistep extends Component {
         this.state={
 
             step: 1,
+            button:false,
             firstname:"Firstname",
             surname:"Surname",
             email:"Email",
@@ -110,6 +111,15 @@ export class Multistep extends Component {
     
         this.setState({ education: [...this.state.education, input ]})
 
+        if(this.state.education.length>=1){
+
+                this.state.button=true;
+        }
+        else{
+            this.state.button=false;
+
+        }
+
     }
 
     popEducationArray = input => e => {
@@ -119,9 +129,22 @@ export class Multistep extends Component {
         this.state.education.pop();
 
         this.setState({education: this.state.education})
+
+       
     }
 
+    if(this.state.education.length>1){
+
+        this.state.button=true;
     }
+    else{
+        this.state.button=false;
+
+        }
+
+    }
+
+    
 
     
 
@@ -161,8 +184,8 @@ export class Multistep extends Component {
 
     render() { 
         const {step} = this.state;
-        const {firstname, surname,email,phoneNumber,dob,address,objective,employer,jobObjective,jobTitle,jstartDate,jendDate,qualities , interests,fieldOfStudy,startDate,gradDate,schoolName,education,rname,roccupation,remployer,remail,rphone} = this.state;
-        const values = {firstname, surname,email,phoneNumber,dob,address,objective,employer,jobObjective,jobTitle,jstartDate,jendDate,qualities, interests, fieldOfStudy,startDate,gradDate, schoolName,education,rname,roccupation,remployer,remail,rphone};
+        const {button,firstname, surname,email,phoneNumber,dob,address,objective,employer,jobObjective,jobTitle,jstartDate,jendDate,qualities , interests,fieldOfStudy,startDate,gradDate,schoolName,education,rname,roccupation,remployer,remail,rphone} = this.state;
+        const values = {button,firstname, surname,email,phoneNumber,dob,address,objective,employer,jobObjective,jobTitle,jstartDate,jendDate,qualities, interests, fieldOfStudy,startDate,gradDate, schoolName,education,rname,roccupation,remployer,remail,rphone};
  
         switch(step){
                case 1:

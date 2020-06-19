@@ -97,6 +97,22 @@ border-radius: 23px;
    margin:4px 2px;	
 }
 
+.remove{
+
+   background:#c3c3c3;
+   outline: none;
+   color:#fff;
+   height:35px;
+   border-radius: 23px;
+    border: none;
+     padding:0 25px;
+     text-align: center;
+      font-size: 16px;
+      margin:4px 2px;	
+   }
+
+
+
 .buttonc{
 
 	border:none;

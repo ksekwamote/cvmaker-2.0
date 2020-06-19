@@ -156,7 +156,7 @@ export class Experience  extends Component {
     <button className="contback" onClick={this.back} >Back</button>
 
     <button id="another" className="conc" >+</button>
-    <button id="remove" className="conc" >-</button>
+    <button className="remove"  >-</button>
 
     <button className="contback" onClick={this.continue} >Continue</button>
 </div>
