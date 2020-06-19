@@ -97,6 +97,19 @@ border-radius: 23px;
    margin:4px 2px;	
 }
 
+.conc:hover{
+
+   border-color:#c3c3c3;
+   background:#226792;
+   
+}
+
+.contback:hover{
+
+   border-color:#c3c3c3;
+   background:#226792;
+}
+
 .remove{
 
    background:#c3c3c3;

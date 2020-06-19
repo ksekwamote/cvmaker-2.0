@@ -21,6 +21,8 @@ export class Multistep extends Component {
 
             step: 1,
             button:false,
+            ebutton:false,
+            rbutton:false,
             firstname:"Firstname",
             surname:"Surname",
             email:"Email",
@@ -35,6 +37,18 @@ export class Multistep extends Component {
             jstartDate:"Start Date",
             jendDate:"End Date",
             jobObjective:"Job Objective",
+
+            experience:[
+                    {
+                        employer:"Employer",
+                        jobTitle:"Job Title",
+                        jstartDate:"Start Date",
+                        jendDate:"End Date",
+                        jobObjective:"Job Objective",    
+
+                    }
+
+            ],
     
             qualities:"Qualities",
     
@@ -56,7 +70,15 @@ export class Multistep extends Component {
 
             ],
 
-            myArray:[],
+            reference:[{
+
+                rname:"Referent Name",
+                roccupation:"Occupation",
+                remployer:"Employer",
+                remail:"Email",
+                rphone:"Phone Number"
+
+            }],
     
             rname:"Referent Name",
             roccupation:"Occupation",
@@ -123,25 +145,70 @@ export class Multistep extends Component {
     }
 
     popEducationArray = input => e => {
-
-    if (this.state.education.length>1){
-
-        this.state.education.pop();
-
-        this.setState({education: this.state.education})
-
-       
-    }
-
-    if(this.state.education.length>1){
-
-        this.state.button=true;
-    }
-    else{
-        this.state.button=false;
-
+        if (this.state.education.length>1){
+            this.state.education.pop();
+            this.setState({education: this.state.education})   
+        }
+        if(this.state.education.length>1){
+            this.state.button=true;
+        }
+        else{
+            this.state.button=false;
+            }
         }
 
+    addToExperienceArray = input => e =>{
+        this.setState({ experience: [...this.state.experience, input ]})
+
+        if(this.state.experience.length>=1){
+
+            this.state.ebutton=true;
+    }
+    else{
+        this.state.ebutton=false;
+
+    }
+    }
+
+    popToExperienceArray=input=>e=>{
+        if(this.state.experience.length>1){
+            this.state.experience.pop();
+            this.setState({experience:this.state.experience})
+        }
+
+        if(this.state.experience.length>1){
+            this.state.ebutton=true;
+        }
+        else{
+            this.state.ebutton=false;
+            }
+    }
+
+    addToReferenceArray = input => e =>{
+        this.setState({ reference: [...this.state.reference, input ]})
+
+        if(this.state.reference.length>=1){
+
+            this.state.rbutton=true;
+    }
+    else{
+        this.state.rbutton=false;
+
+    }
+    }
+
+    popToReferenceArray= input => e =>{
+        if(this.state.reference.length>1){
+            this.state.reference.pop();
+            this.setState({reference:this.state.reference})
+        }
+
+        if(this.state.reference.length>1){
+            this.state.rbutton=true;
+        }
+        else{
+            this.state.rbutton=false;
+            }
     }
 
     
@@ -184,8 +251,8 @@ export class Multistep extends Component {
 
     render() { 
         const {step} = this.state;
-        const {button,firstname, surname,email,phoneNumber,dob,address,objective,employer,jobObjective,jobTitle,jstartDate,jendDate,qualities , interests,fieldOfStudy,startDate,gradDate,schoolName,education,rname,roccupation,remployer,remail,rphone} = this.state;
-        const values = {button,firstname, surname,email,phoneNumber,dob,address,objective,employer,jobObjective,jobTitle,jstartDate,jendDate,qualities, interests, fieldOfStudy,startDate,gradDate, schoolName,education,rname,roccupation,remployer,remail,rphone};
+        const {button,ebutton , rbutton,firstname, surname,email,phoneNumber,dob,address,objective,experience ,employer,jobObjective,jobTitle,jstartDate,jendDate,qualities , interests,fieldOfStudy,startDate,gradDate,schoolName,education,rname,roccupation,remployer,remail,rphone,reference} = this.state;
+        const values = {button,ebutton,rbutton,firstname, surname,email,phoneNumber,dob,address,objective,experience ,employer,jobObjective,jobTitle,jstartDate,jendDate,qualities, interests, fieldOfStudy,startDate,gradDate, schoolName,education,rname,roccupation,remployer,remail,rphone,reference};
  
         switch(step){
                case 1:
@@ -216,6 +283,8 @@ export class Multistep extends Component {
                     nextStep = {this.nextStep}
                     prevStep = {this.prevStep}
                     handleChange= {this.handleChange}
+                    addToExperienceArray ={this.addToExperienceArray}
+                    popToExperienceArray = {this.popToExperienceArray}
                     value={values}
                     
                     />
@@ -254,6 +323,8 @@ export class Multistep extends Component {
                         return <Reference
                         prevStep = {this.prevStep}
                         handleChange= {this.handleChange}
+                        addToReferenceArray = {this.addToReferenceArray}
+                        popToReferenceArray = {this.popToReferenceArray}
                         value={values}
                         />
 

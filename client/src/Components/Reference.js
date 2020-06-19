@@ -6,6 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import axios from 'axios';
 import {saveAs} from 'file-saver';
 import $ from "jquery";
+import Refer from "./child/Refer"
 
 
 export class Reference  extends Component {
@@ -18,37 +19,6 @@ export class Reference  extends Component {
     }
 
 
-    componentDidMount(){
-
-        const div =  $(document).ready(function(){
-            $("#remove").hide();
-    
-              $('.wrapper').on('click', '#another', function() {
-                  $('#another').closest('.wrapper').find('#clone').first().clone().appendTo('.job'); 
-    
-                          $("#remove").show();
-                });
-    
-    
-             $('.wrapper').on('click', '#remove', function() {
-                  $('#remove').closest('.wrapper').find('#clone').last().remove();
-    
-                      var remBut = $('[id^=clone]').length;
-                    if(remBut<2){
-    
-                        $("#remove").hide();
-                            }
-    
-    
-    
-                });
-    
-    
-                
-        })
-    
-
-    }
       
       back = e => {
         e.preventDefault();
@@ -100,88 +70,60 @@ export class Reference  extends Component {
 
   
     render() {
-        const{value, handleChange} = this.props;
-        return (
-           <MuiThemeProvider>
-               <React.Fragment>
-               <div align="center">
+            const{value, handleChange ,addToReferenceArray,popToReferenceArray} = this.props;
 
-<div className="wrapper"  >
+                    const refe = {
 
-        <div className="job">
+                        rname:"Referent Name",
+                        roccupation:"Occupation",
+                        remployer:"Employer",
+                        remail:"Email",
+                        rphone:"Phone Number"
+                    }
+                    return (
+                    <MuiThemeProvider>
+                        <React.Fragment>
+                        <div align="center">
 
-                <div id="clone">
-                <h2 id="title"  >Reference</h2>
+            <div className="wrapper"  >
 
-                <ul>
-                <div className="buttonc">
-						<li>
-						<input onChange={handleChange('rname')} name="rname" placeholder={value.rname}></input>
-						</li>
-					</div>
+                    <div className="job">
 
-                    <div className="buttonc">
-			            <li>
-					        <input onChange={handleChange('roccupation')} name="roccupation" placeholder={value.roccupation}></input>
+                            <div id="clone">
 
-			            </li>
-		            </div>
+                                <div>
+                                    {value.reference.map(item=>(
 
-                    <div className="buttonc">
-			<li>
-				<input onChange={handleChange('remployer')} name="remployer" placeholder={value.remployer}></input>
-				
+                                            <Refer value={item}/>
 
-			</li>
-		</div>
+                                    ))
 
-		<div className="buttonc">
-			<li>
 
-					<input onChange={handleChange('remail')} name="remail" placeholder={value.remail}></input>
-				
+                                    }
 
-			</li>
-		
-		</div>
+                                </div>
+                            
 
-			<div className="buttonc">
+                                </div>
 
-			<li>
-					<input  onChange={handleChange('rphone')} name="rphone" placeholder={value.rphone}></input>
+            </div>
 
-			</li>
+            <div id="inline">
 
-				
+                <button className="contback" onClick={this.back} >Back</button>
 
-		
-			</div>
+                <button className="conc" onClick={addToReferenceArray(refe , value)} >+</button>
+                <button className={value.rbutton ? "conc":"remove"} onClick={popToReferenceArray(refe)}>-</button>
+            </div>
+
+
+                
 
 
 
+            </div>
 
-                </ul>
-
-</div>
-
-</div>
-
-<div id="inline">
-
-    <button className="contback" onClick={this.back} >Back</button>
-
-    <button id="another" className="conc" >+</button>
-    <button id="remove" className="conc" >-</button>
-</div>
-
-
-    
-
-
-
-</div>
-
-</div>
+            </div>
                </React.Fragment>
            </MuiThemeProvider>
         )

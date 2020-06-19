@@ -76,8 +76,7 @@ export class Education extends Component {
   
     render() {
 
-        const {value, handleChange ,addToEducationArray , popEducationArray} = this.props;
-        let btn_class = this.state.black ? "blackButton" : "whiteButton";
+        const {value, handleChange ,addToEducationArray , popEducationArray } = this.props;
         const ed ={
 
             fieldOfStudy:"Field Of Study",
@@ -124,7 +123,7 @@ export class Education extends Component {
     <button className={value.button ? "conc":"remove"} onClick={popEducationArray(ed)}>-</button>
     <button className="conc" onClick={addToEducationArray(ed , value)}>+</button>
 
-    <button className="contback"  >Continue</button>
+    <button className="contback" onClick={this.continue} >Continue</button>
 </div>
 
 

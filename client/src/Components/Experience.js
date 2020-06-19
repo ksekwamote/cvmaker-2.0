@@ -6,6 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import axios from "axios";
 import "./css/experience.css";
 import $ from "jquery";
+import Expe from "./child/Expe"
 
 
 export class Experience  extends Component {
@@ -14,38 +15,15 @@ export class Experience  extends Component {
         super(props)
         this.onSubmit = this.onSubmit.bind(this);
 
+        this.state= {
+            index:0
+
+        }
+
 
     }
 
-    componentDidMount(){
-
-        const div =  $(document).ready(function(){
-            $("#remove").hide();
     
-              $('.wrapper').on('click', '#another', function() {
-                  $('#another').closest('.wrapper').find('#clone').first().clone().appendTo('.job'); 
-    
-                          $("#remove").show();
-                });
-    
-    
-             $('.wrapper').on('click', '#remove', function() {
-                  $('#remove').closest('.wrapper').find('#clone').last().remove();
-    
-                      var remBut = $('[id^=clone]').length;
-                    if(remBut<2){
-    
-                        $("#remove").hide();
-                            }
-    
-                });
-    
-    
-                
-        })
-    
-
-    }
 
    
     continue = e => {
@@ -84,97 +62,56 @@ export class Experience  extends Component {
   
     render() {
 
-        const{value , handleChange} = this.props;
-   
+        const{value , handleChange ,addToExperienceArray ,popToExperienceArray} = this.props;
+        const ex ={
+            employer:"Employer",
+            jobTitle:"Job Title",
+            jstartDate:"Start Date",
+            jendDate:"End Date",
+            jobObjective:"Job Objective",    
+
+        }
+
+
         return (
            <MuiThemeProvider>
                <React.Fragment>
                <div align="center">
 
-<div className="wrapper"  >  
+                <div className="wrapper"  >  
 
-        <div className="job">
+            <div className="job">
 
                 <div id="clone">
-                <h2 id="title"  >Job Experience</h2>
 
-                <ul>
-                <div className="buttonc">
-						<li>
-						<input name="employer" onChange={handleChange('employer')} placeholder={value.employer}></input>
-						</li>
-					</div>
+                    <div>
+                            {value.experience.map(item => (
 
-                    <div className="buttonc">
-			            <li>
-					        <input onChange={handleChange('jobTitle')} name="jobTitle" placeholder={value.jobTitle}></input>
+                                    <Expe value ={item}/>
 
-			            </li>
-		            </div>
+                            ))}
 
-                    <div className="buttonc">
-			<li>
-				<input onChange={handleChange('jstartDate')} name="jstartDate" placeholder={value.startDate}></input>
-				
+                    </div>
+                
+                </div>
 
-			</li>
-		</div>
+            </div>
 
-		<div className="buttonc">
-			<li>
+    <div id="inline">
 
-					<input onChange={handleChange('jendDate')} name="jendDate" placeholder={value.endDate}></input>
-				
-
-			</li>
-		
-		</div>
-
-			<div className="buttonc">
-
-			<li>
-					<input onChange={handleChange('jobObjective')} name="jobObjectives" placeholder={value.jobObjective}></input>
-
-			</li>
-
-				
-
-		
-			</div>
+        <button className="contback" onClick={this.back} >Back</button>
 
 
+        <button className={value.ebutton ? "conc":"remove"} onClick={popToExperienceArray(ex)} >-</button>
+        <button id="another" className="conc" onClick={addToExperienceArray(ex)} >+</button>
+      
 
+        <button className="contback" onClick={this.continue} >Continue</button>
+    </div>
 
-                </ul>
+    </div>
 
-</div>
-
-</div>
-
-<div id="inline">
-
-    <button className="contback" onClick={this.back} >Back</button>
-
-    <button id="another" className="conc" >+</button>
-    <button className="remove"  >-</button>
-
-    <button className="contback" onClick={this.continue} >Continue</button>
-</div>
-
-
-    
-
-
-
-</div>
-
-</div>
-
-
-
-              
-
-
+    </div>
                </React.Fragment>
            </MuiThemeProvider>
         )
