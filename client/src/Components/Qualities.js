@@ -56,7 +56,7 @@ export default class Qualities extends Component {
 
 <div align="center">
 
-<div class="wrapper">
+<div class="wrappers">
   <h2 id="headline2">Qualities</h2>
 
 

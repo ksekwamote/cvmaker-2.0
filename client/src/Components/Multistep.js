@@ -8,6 +8,7 @@ import Education from './Education';
 import Reference from './Reference';
 import Interests from './Interests';
 import Educate from "./child/Educate";
+import Templates from "./Templates";
 import "./css/multistep.css";
 
 
@@ -168,6 +169,8 @@ export class Multistep extends Component {
         this.state.ebutton=false;
 
     }
+
+    window.scrollBy(0, 400); 
     }
 
     popToExperienceArray=input=>e=>{
@@ -195,6 +198,7 @@ export class Multistep extends Component {
         this.state.rbutton=false;
 
     }
+       
     }
 
     popToReferenceArray= input => e =>{
@@ -255,10 +259,21 @@ export class Multistep extends Component {
         const values = {button,ebutton,rbutton,firstname, surname,email,phoneNumber,dob,address,objective,experience ,employer,jobObjective,jobTitle,jstartDate,jendDate,qualities, interests, fieldOfStudy,startDate,gradDate, schoolName,education,rname,roccupation,remployer,remail,rphone,reference};
  
         switch(step){
-               case 1:
+
+                case 1:
+                    return(
+
+                        <Templates
+                        nextStep = {this.nextStep}
+                        />
+                    )
+                   
+
+               case 2:
                    return(
                     <PersonalInfo
                         nextStep = {this.nextStep}
+                        prevStep = {this.prevStep}
                         handleChange= {this.handleChange}
                         onSubmit = {this.onSubmit}
                         //getStateValue = {this.getStateValue}
@@ -269,7 +284,7 @@ export class Multistep extends Component {
                    
                     
 
-                case 2:
+                case 3:
                     return <Objective
                     nextStep = {this.nextStep}
                     prevStep = {this.prevStep}
@@ -278,7 +293,7 @@ export class Multistep extends Component {
                     
                     
                     />
-                case 3:
+                case 4:
                     return <Experience
                     nextStep = {this.nextStep}
                     prevStep = {this.prevStep}
@@ -290,7 +305,7 @@ export class Multistep extends Component {
                     />
 
                     
-                case 4:
+                case 5:
                         return <Qualities
                         nextStep = {this.nextStep}
                         prevStep = {this.prevStep}
@@ -299,7 +314,7 @@ export class Multistep extends Component {
                         
                         />
 
-                case 5:
+                case 6:
                         return <Education
                         nextStep = {this.nextStep}
                         prevStep = {this.prevStep}
@@ -310,7 +325,7 @@ export class Multistep extends Component {
                             
                             
                             />
-                 case 6:
+                 case 7:
                         return <Interests
                         nextStep = {this.nextStep}
                         prevStep = {this.prevStep}
@@ -319,7 +334,7 @@ export class Multistep extends Component {
                                     
                                     
                                     />
-                 case 7:
+                 case 8:
                         return <Reference
                         prevStep = {this.prevStep}
                         handleChange= {this.handleChange}

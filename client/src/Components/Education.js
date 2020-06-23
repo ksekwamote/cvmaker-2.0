@@ -92,7 +92,7 @@ export class Education extends Component {
                <React.Fragment>
                <div align="center">
 
-        <div className="wrapper"  >
+        <div className="wrappers"  >
 
              <div className="job">
 

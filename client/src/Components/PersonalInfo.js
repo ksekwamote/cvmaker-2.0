@@ -28,6 +28,12 @@ class PersonalInfo  extends Component {
         this.props.nextStep();
     };
 
+    back = e => {
+        e.preventDefault();
+        this.props.prevStep();
+      
+      }
+
     
 
     
@@ -65,7 +71,7 @@ class PersonalInfo  extends Component {
 
     <div align="center">
 
-    <div className="wrapper" >
+    <div className="wrappers" >
 
     <h2 id="headline2">Personal Information</h2>
             <ul>
@@ -121,6 +127,7 @@ class PersonalInfo  extends Component {
             </li>
         </div>
 
+    <button className="contback" onClick={this.back} >Back</button>
      <button onClick={this.continue} >Continue</button>
    
 

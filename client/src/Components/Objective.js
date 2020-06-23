@@ -60,7 +60,7 @@ class Objective extends Component {
 
       <div align="center">
 
-      <div class="wrapper">
+      <div class="wrappers">
 
         <h2 id="headline2">Objectives</h2>
 
