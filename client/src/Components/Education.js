@@ -1,10 +1,7 @@
-import React, { Component , useRef} from 'react'
+import React, { Component} from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import axios from 'axios';
-import $ from "jquery";
 import Educate from "./child/Educate";
-import ReactHtmlParser from 'react-html-parser'
-import ReactDOM from "react-dom";
 
 
 export class Education extends Component {

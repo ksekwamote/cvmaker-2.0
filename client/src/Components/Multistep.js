@@ -7,7 +7,6 @@ import Qualities from './Qualities'
 import Education from './Education';
 import Reference from './Reference';
 import Interests from './Interests';
-import Educate from "./child/Educate";
 import Templates from "./Templates";
 import "./css/multistep.css";
 
@@ -32,12 +31,6 @@ export class Multistep extends Component {
             address:"Address",
             
             objective:"Objective",
-    
-            employer:"Employer",
-            jobTitle:"Job Title",
-            jstartDate:"Start Date",
-            jendDate:"End Date",
-            jobObjective:"Job Objective",
 
             experience:[
                     {
@@ -54,11 +47,6 @@ export class Multistep extends Component {
             qualities:"Qualities",
     
             interests:"Interests",
-    
-            fieldOfStudy:"Field Of Study",
-            schoolName:"School Name",
-            startDate:"Start Date",
-            gradDate:"Graduation Date",
 
             education:[
                 {
@@ -80,12 +68,9 @@ export class Multistep extends Component {
                 rphone:"Phone Number"
 
             }],
+
+          temp:""
     
-            rname:"Referent Name",
-            roccupation:"Occupation",
-            remployer:"Employer",
-            remail:"Email",
-            rphone:"Phone Number"
     
         }
     
@@ -111,6 +96,7 @@ export class Multistep extends Component {
         this.setState({
 
             step: step -1
+
         });
 
     }
@@ -122,6 +108,12 @@ export class Multistep extends Component {
         this.setState({[input]: val});
 
     }
+
+    onChangeTemplate = e => {
+      
+        this.setState({temp:e.target.value});
+       
+	  }
 
     handleArray = input => e =>{
 
@@ -254,10 +246,12 @@ export class Multistep extends Component {
    
 
     render() { 
+        
         const {step} = this.state;
-        const {button,ebutton , rbutton,firstname, surname,email,phoneNumber,dob,address,objective,experience ,employer,jobObjective,jobTitle,jstartDate,jendDate,qualities , interests,fieldOfStudy,startDate,gradDate,schoolName,education,rname,roccupation,remployer,remail,rphone,reference} = this.state;
-        const values = {button,ebutton,rbutton,firstname, surname,email,phoneNumber,dob,address,objective,experience ,employer,jobObjective,jobTitle,jstartDate,jendDate,qualities, interests, fieldOfStudy,startDate,gradDate, schoolName,education,rname,roccupation,remployer,remail,rphone,reference};
- 
+        const {button,ebutton , rbutton,firstname, surname,email,phoneNumber,dob,address,objective,experience ,employer,jobObjective,jobTitle,jstartDate,jendDate,qualities , interests,fieldOfStudy,startDate,gradDate,schoolName,education,rname,roccupation,remployer,remail,rphone,reference,temp} = this.state;
+        const values = {button,ebutton,rbutton,firstname, surname,email,phoneNumber,dob,address,objective,experience ,employer,jobObjective,jobTitle,jstartDate,jendDate,qualities, interests, fieldOfStudy,startDate,gradDate, schoolName,education,rname,roccupation,remployer,remail,rphone,reference,temp};
+     
+      
         switch(step){
 
                 case 1:
@@ -265,6 +259,8 @@ export class Multistep extends Component {
 
                         <Templates
                         nextStep = {this.nextStep}
+                        onChangeTemplate={this.onChangeTemplate}
+                        value ={values}
                         />
                     )
                    

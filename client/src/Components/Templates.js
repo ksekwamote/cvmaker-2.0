@@ -3,13 +3,15 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import "./css/template.css"
 import $ from 'jquery';
 
-export default class Education extends Component {
+export class Templates extends Component {
 
     constructor(props){
         super(props)
-     
+		this.onChangeValue = this.onChangeValue.bind(this);
         this.state={
-                index:0,
+				index:0,
+				temp:""
+				
     
         }
     }
@@ -29,7 +31,15 @@ export default class Education extends Component {
             })
 
     })     
-    }
+	}
+	
+	onChangeValue(value) {
+
+		return event =>{
+		console.log(event.target.value)
+		 this.setState({temp:event.target.value})
+		}
+	  }
 
     continue = e => {
         e.preventDefault();
@@ -38,21 +48,37 @@ export default class Education extends Component {
 
 
 render(){
+
+	const {value ,onChangeTemplate} = this.props;
+
+	//let stat = this.state.temp = value.template;
+	//let stat = this.state.temp = value.temp;
+
+	const ed ={
+
+		fieldOfStudy:"Field Of Study",
+		schoolName:"School Name",
+		startDate:"Start Date",
+		gradDate:"Graduation Date",
+	}
+
    return(
 
     <MuiThemeProvider>
 <React.Fragment>
        <div>
-
+	   
                     
 	<div align="center">
 	<div className="wrapper">
 		
 			<h2>Templates</h2>
-		<div className="radio-toolbar">
+		<div onChange= {onChangeTemplate} className="radio-toolbar">
+			
 		<div id="flex">	
 			<div id="pad">
-				<lu>
+			
+				<ul>
 					<li id="imgList">
 						<img id="myImg" className="template1" src={require("../images/templates/template 1.png")} alt="Snow"></img>
 							<div id="myModal" className="modal">
@@ -64,21 +90,21 @@ render(){
 					<li id="imgList">
 					
 					
-							<input type="radio" id="template1" name="template" value="template1"></input>
+							<input type="radio" id="template1" name="template" value="template1" ></input>
 							<label for="template1">Template 1</label>
 
 					</li>
-				</lu>
+				</ul>
 			</div>
 
 
 			<div id="pad">		
 
-				<lu>
+				<ul>
 					<li id="imgList">
 						<img id="myImg2" className="template2" src={require("../images/templates/template 2.jpg")} alt="Snow"></img>
 							<div id="myModal" className="modal">
-								<span classNames="close">&times;</span>
+								<span className="close">&times;</span>
 									<img className="modal-content" id="img01"></img>
   							</div>
   					</li>
@@ -88,7 +114,7 @@ render(){
 						<input type="radio" id="template2" name="template" value="template2"></input>
 						<label for="template2">Template 2 </label>
 					</li>
-				</lu>
+				</ul>
 			
 			</div>
 
@@ -101,6 +127,7 @@ render(){
 
 
 			<div id="pad">
+				<ul>
 					<li id="imgList">
 						<img id="myImg3"  className="template3" src={require("../images/templates/template 3.png") } alt="Snow"></img>
 							<div id="myModal" className="modal">
@@ -112,10 +139,12 @@ render(){
 					<li id="imgList">
 						<input type="radio" id="template3" name="template" value="template3"></input>
 						<label for="template3">Template 3 </label>
-					</li>			
+					</li>
+				</ul>				
 		 	</div>
 
 		 	<div  id="pad">	
+				 <ul>
 					<li id="imgList">		
 						<img id="myImg4" src={require("../images/templates/template 4.jpg")} className="template4" alt="Snow"></img>
 							<div id="myModal" className="modal">
@@ -129,6 +158,7 @@ render(){
 						<input type="radio" id="template4" name="template" value="template4"></input>
 						<label for="template4">Template 4 </label>
 					</li>
+				</ul>
 			</div>
 
 
@@ -159,6 +189,8 @@ render(){
 
        </div>
 
+	  
+
        </React.Fragment>
            </MuiThemeProvider>
    )
@@ -167,3 +199,6 @@ render(){
 }
 
 }
+
+
+export default Templates;
