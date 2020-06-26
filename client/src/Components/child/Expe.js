@@ -28,7 +28,7 @@ export default class Expe extends Component{
 
             <div>
 
-                <h2 id="title"  >Job Experience</h2>
+                <h2 id="title" style={{color:'#105481'}} >Job Experience</h2>
 
                 <ul>
 <                   div className="buttonc">

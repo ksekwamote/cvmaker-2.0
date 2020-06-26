@@ -5,7 +5,7 @@ ul{
 
 ul li::before{
     content: "\2022";
-    color:#7299b3;
+    color:#105481;
     font-weight: bold;
     display:inline-block;
     margin-left: -1em;
@@ -28,7 +28,7 @@ ul li::before{
 
 #heading{
   font-family: Bahnschrift; 
-  color:#7299b3; font-size: 50px;
+  color:#105481; font-size: 50px;
 }
 
 #title{

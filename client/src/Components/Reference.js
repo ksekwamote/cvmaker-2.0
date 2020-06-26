@@ -90,6 +90,7 @@ export class Reference  extends Component {
                     <div className="job">
 
                             <div id="clone">
+                            <br/> <br/>
 
                                 <div>
                                     {value.reference.map(item=>(

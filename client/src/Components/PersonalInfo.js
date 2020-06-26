@@ -73,7 +73,7 @@ class PersonalInfo  extends Component {
 
     <div className="wrappers" >
 
-    <h2 id="headline2">Personal Information</h2>
+    <h2 id="headline2" style={{color:'#105481'}}>Personal Information</h2>
             <ul>
                 
                     <div class="buttonc">

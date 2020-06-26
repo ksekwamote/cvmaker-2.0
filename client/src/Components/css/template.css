@@ -1,6 +1,8 @@
 
 body {
-background-size: cover; }
+background-size: cover; 
+background-color: #b6d3eb;
+}
 
 
 body{
@@ -39,7 +41,7 @@ border-radius: 4px;
 }
 
 .radio-toolbar label:hover{
-color:#7299b3;
+color:#105481;
 background-color: #fff;
 
 }
@@ -137,7 +139,7 @@ width: 100%;
 
 .wrapper{
 position: relative;
-background: #7299b3; 
+background: #105481; 
 max-width: 1028px;
 margin-top:50px;
 padding-top: 2px;
@@ -168,14 +170,14 @@ font-size: 50px;
 }
 
 h2{
-font-family: Bahnschrift SemiCondensed;
-color:#fff;
+font-family: Arial, Helvetica, sans-serif;
+color:#105481;
 }
 .cont{
 
 background:#fff;
 outline: none;
-color:#7299b3; 
+color:#105481; 
 height:35px; 
 border-radius: 23px; 
 border: none; 
@@ -183,6 +185,11 @@ padding:0 45px;
 text-align: center; 
 font-size: 16px; 
 margin:4px 2px;
+}
+
+label{
+
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #flex{display:inline-flex;}

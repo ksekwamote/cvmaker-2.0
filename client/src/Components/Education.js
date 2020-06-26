@@ -94,6 +94,7 @@ export class Education extends Component {
              <div className="job">
 
                 <div id="clone">
+                <br/> <br/>
 
                <div>
                     {value.education.map(item => (

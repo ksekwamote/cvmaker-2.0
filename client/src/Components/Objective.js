@@ -58,7 +58,7 @@ class Objective extends Component {
 
       <div class="wrappers">
 
-        <h2 id="headline2">Objectives</h2>
+        <h2 id="headline2" style={{color:'#105481'}}>Objectives</h2>
 
     
       <div id="cover">

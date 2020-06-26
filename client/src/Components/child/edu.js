@@ -23,7 +23,7 @@ render(){
         <div>
     
 <div id="clone">
-                <h2 id="title"  >Education</h2>
+                <h2 id="title" style={{color:'#105481'}} >Education</h2>
 
                 <ul>
                 <div className="buttonc">

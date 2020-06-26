@@ -83,6 +83,7 @@ export class Experience  extends Component {
             <div className="job">
 
                 <div id="clone">
+                <br/> <br/>
 
                     <div>
                             {value.experience.map(item => (

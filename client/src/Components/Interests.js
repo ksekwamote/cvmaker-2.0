@@ -54,7 +54,8 @@ export  class Interests extends Component {
 <div align="center">
 
 <div class="wrappers">
-  <h2 id="headline2">Interests</h2>
+<br/> <br/>
+  <h2 id="headline2" style={{color:'#105481'}}>Interests</h2>
 
 
 <div id="cover">

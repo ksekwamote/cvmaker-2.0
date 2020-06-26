@@ -33,7 +33,7 @@ export default class Reference  extends Component {
 
             <div>
 
-                    <h2 id="title"  >Reference</h2>
+                    <h2 id="title" style={{color:'#105481'}} >Reference</h2>
 
                     <ul>
                     <div className="buttonc">
