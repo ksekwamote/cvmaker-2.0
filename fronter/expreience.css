@@ -1,0 +1,99 @@
+ul{
+
+  	list-style: none;
+  }
+
+  ul li::before{
+  	content: "\2022";
+  	color:#7299b3;
+  	font-weight: bold;
+  	display:inline-block;
+  	margin-left: -1em;
+  }
+
+  .wrapper{
+  	position: relative; 
+  	background:#fff;
+  	 min-height: 554px; 
+  	 width: 728px; 
+  	 margin-top:50px;
+  	padding-top:2px;
+  	 border-radius:10px; 
+  	 align-items: center;
+  	 justify-content: center;
+  	 font-family: Bahnschrift;
+
+
+
+  }
+
+#heading{
+	font-family: Bahnschrift; 
+	color:#7299b3; font-size: 50px;
+}
+
+#title{
+
+	font-family: Bahnschrift; 
+	color:#7299b3; padding:0px;
+	 margin-top:-10px;
+
+}
+ ul{
+ 	padding:0px; 
+ 	margin-top:-20px;
+
+
+ }
+ .buttonc{
+ 	border:none; 
+ 	padding-bottom: 0px;
+
+
+ }
+
+ input{
+
+ 	border-radius:23px; 
+ 	height:40px; 
+ 	border:none;
+ 	 width:50%; 
+ 	 padding: 0 25px;
+ 	  background: #f7f7f7; 
+ 	  color:#333; 
+ 	  outline:none;
+
+
+ }
+
+ .contback{
+
+ 	background:#7299b3; 
+ 	outline: none;
+ 	 color:#fff;
+ 	 height:35px;
+ 	 border-radius: 23px;
+ 	  border: none;
+ 	  padding:0 60px; 
+ 	 text-align: center;
+ 	 font-size: 16px; 
+ 	 margin:4px 2px;
+
+
+
+ }
+
+ .conc{
+
+ background:#7299b3;
+  outline: none;
+  color:#fff;
+  height:35px;
+  border-radius: 23px;
+   border: none;
+    padding:0 25px;
+    text-align: center;
+     font-size: 16px;
+     margin:4px 2px;	
+ }
+

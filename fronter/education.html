@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href = "jquery-ui.css"
+         rel = "stylesheet">
+      <script src = "jquery-1.10.2.js"></script>
+      <script src = "jquery-ui.js"></script>
+	<script type="text/javascript">
+
+
+
+		$(document).ready(function(){
+
+			$("#remove").hide();
+			
+			$("#datepicker-13").datepicker();
+
+ 			 $('.wrapper').on('click', '#another', function() {
+ 		 		$('#another').closest('.wrapper').find('#clone').first().clone().appendTo('.job'); 
+
+ 		 				$("#remove").show();
+				});
+
+
+ 			$('.wrapper').on('click', '#remove', function() {
+  				$('#remove').closest('.wrapper').find('#clone').last().remove();
+
+  					var remBut = $('[id^=clone]').length;
+					if(remBut<2){
+
+						$("#remove").hide();
+							}
+
+
+
+				});
+
+
+				
+		})
+			
+
+
+	</script>
+	<style>
+		
+		@font-face {
+  		font-family: "Bahnschrift SemiCondensed"; 
+ 	}
+ 	body {
+  background: url("form-wizard-bg.jpg");
+  background-size: cover; }
+
+
+  body{
+  		font-family: "Bahnschrift";
+
+  }
+
+  ul{
+
+  	list-style: none;
+  }
+
+  ul li::before{
+  	content: "\2022";
+  	color:#7299b3;
+  	font-weight: bold;
+  	display:inline-block;
+  	margin-left: -1em;
+  }
+
+
+
+
+
+	</style>
+</head>
+<body>
+
+
+
+	<div align="center">
+
+	<div class="wrapper" style="position: relative; background: #fff; min-height: 554px; width: 728px; margin-top:50px; padding-top:2px; border-radius:10px;  align-items: center; justify-content: center; font-family: Bahnschrift SemiCondensed;" >
+
+		<h1 style="font-family: Bahnschrift; color:#7299b3; font-size: 50px; " >cvmaker<h1>
+			
+
+			<div class="job">
+
+					<div id="clone">
+					<h4 id="title" style="font-family: Bahnschrift; color:#7299b3; padding:0px; margin-top:-10px;" >Education<h4>
+
+			<ul style="padding:0px; margin-top:-20px;">
+				
+					<div style="border:none; padding-bottom: 0px;">
+						<li>
+						<input type="" style="border-radius:23px; height:40px; border:none; width:50%; padding: 0 25px; background: #f7f7f7; color:#333; outline:none;" name="fos" placeholder="Field Of Study">
+						</li>
+					</div>
+				
+			
+
+		<div style="border:none; padding: 10px;">
+			<li>
+					<input type="" style="border-radius:23px; height:40px; border:none; width:50%; padding: 0 25px;  background: #f7f7f7; color:#333; outline:none;" name="schoolName" placeholder="School Name">
+
+			</li>
+		
+		</div>
+
+		<div style="border:none; padding: 10px;">
+			<li>
+				<input type="text" id="datepicker-13" style="border-radius:23px; height:40px; border:none; width:50%; padding: 0 25px;  background: #f7f7f7; color:#333; outline:none;" name="startDate" placeholder="Start Date"> 
+				
+
+			</li>
+		
+		</div>
+
+		<div style="border:none; padding: 10px;">
+			<li>
+
+					<input type="" style="border-radius:23px; height:40px; border:none; width:50%; padding: 0 25px;  background: #f7f7f7; color:#333; outline:none;" name="endDate" placeholder="Graduation Date">
+				
+
+			</li>
+		
+		</div>
+		</ul>
+</div>
+
+</div>
+
+	<div style="display: inline-block; padding: 10px;">
+
+		<button style="background:#7299b3; outline: none; color:#fff; height:35px; border-radius: 23px; border: none; padding:0 60px; text-align: center; font-size: 16px; margin:4px 2px;">Back</button>
+
+		<button id="another" style="background:#7299b3; outline: none; color:#fff; height:35px; border-radius: 23px; border: none; padding:0 25px; text-align: center; font-size: 16px; margin:4px 2px;">+</button>
+		<button id="remove" style="background:#7299b3; outline: none; color:#fff; height:35px; border-radius: 23px; border: none; padding:0 25px; text-align: center; font-size: 16px; margin:4px 2px;">-</button>
+
+		<button style="background:#7299b3; outline: none; color:#fff; height:35px; border-radius: 23px; border: none; padding:0 45px; text-align: center; font-size: 16px; margin:4px 2px;">Continue</button>
+	</div>
+
+
+		
+
+
+
+	</div>
+
+	</div>
+
+		
+</body>
+</html>

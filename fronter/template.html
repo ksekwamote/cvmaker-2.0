@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src = "jquery-1.10.2.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+
+				$("input[type='radio']").click(function(){
+					var radioValue = $("input[name =template]:checked").val();
+					$("."+radioValue).css({'filter':'brightness(130%)', 'box-shadow': '0px 0px 10px #fff'})
+					var radio = "."+radioValue;
+					$("img:not("+radio+")").css({'filter':'', 'box-shadow':''})
+
+					
+				})
+
+		})
+
+
+	</script>
+	
+	<style>
+		
+		@font-face {
+  		font-family: "Bahnschrift SemiCondensed"; 
+ 	}
+ 	body {
+  background: url("form-wizard-bg.jpg");
+  background-size: cover; }
+
+
+  body{
+  		font-family: "Bahnschrift SemiCondensed";
+
+  }
+
+  ul{
+
+  	list-style: none;
+  }
+
+  ul li::before{
+  	content: "\2022";
+  	color:#7299b3;
+  	font-weight: bold;
+  	display:inline-block;
+  	margin-left: -1em;
+  }
+
+  .radio-toolbar input[type="radio"]{
+
+  	opacity: 0;
+  	width:0
+  	  }
+
+  .radio-toolbar label{
+
+ 	padding-bottom: 10px;
+  	padding:10px 20px;
+  	font-size: 16px;
+  	border: 2px solid #fff;
+  	border-radius: 4px;
+  		color:#fff;
+  }
+
+  .radio-toolbar label:hover{
+  	color:#7299b3;
+  	background-color: #fff;
+
+  }
+
+  .radio-toolbar input[type="radio"]:focus + label{
+  		border: 2px dashed #fff;
+
+  }
+
+  .radio-toolbar input[type="radio"]:checked + label{
+  	background-color: #fff;
+  	border-color: #fff;
+  	color:#7299b3;
+
+  }
+
+  img {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+img:hover {opacity: 0.7; 
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 10px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 450px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+
+
+	</style>
+</head>
+<body>
+
+
+
+	<div align="center">
+
+	<div class="wrapper" style="position: relative; background: #7299b3; width: 728px; margin-top:50px; padding-top: 2px; border-radius:10px; min-height: 554px; align-items: center; justify-content: center; font-family: Bahnschrift SemiCondensed;" >
+
+		<h1 style="font-family: Bahnschrift SemiCondensed; color:#fff; font-size: 50px; " >cvmaker<h1>
+			<h2 style="font-family: Bahnschrift SemiCondensed; color:#fff; " >Templates</h2>
+
+
+
+		<div class="radio-toolbar">
+
+		<div style="display:inline-flex;">
+			
+			<div style="padding:20px;">
+
+				<lu>
+					<li style="padding:10px;">
+						<img id="myImg" class="template1" src="template 1.png" alt="Snow" style="width:100%;max-width:200px">
+							<div id="myModal" class="modal">
+  								<span class="close">&times;</span>
+  								<img class="modal-content" id="img01">
+							</div>
+					</li>
+
+					<li style="padding:10px;">
+					
+					
+							<input type="radio" id="template1" name="template" value="template1">
+							<label for="template1">Template 1</label>
+
+					</li>
+				</lu>
+			</div>
+
+
+			<div style="padding:20px;">		
+
+				<lu>
+					<li style="padding:10px;">
+						<img id="myImg2" class="template2" src="template 2.jpg" alt="Snow" style="width:100%;max-width:200px">
+							<div id="myModal" class="modal">
+								<span class="close">&times;</span>
+									<img class="modal-content" id="img01">
+  							</div>
+  					</li>
+
+  					<li style="padding:10px;">
+								
+						<input type="radio" id="template2" name="template" value="template2">
+						<label for="template2">Template 2 </label>
+					</li>
+				</lu>
+			
+			</div>
+
+
+		</div>
+
+		<div style="display:inline-flex;">
+
+
+
+
+			<div style="padding:20px;">
+					<li style="padding:10px;">
+						<img id="myImg3"  class="template3" src="template 3.png" class="template4" alt="Snow" style="width:100%;max-width:200px">
+							<div id="myModal" class="modal">
+								<span class="close">&times;</span>
+									<img class="modal-content" id="img01">
+							</div>
+					</li>
+		
+					<li style="padding:10px;">
+						<input type="radio" id="template3" name="template" value="template3">
+						<label for="template3">Template 3 </label>
+					</li>			
+		 	</div>
+
+		 	<div  style="padding:20px;">	
+					<li style="padding:10px;">		
+						<img id="myImg4" src="template 4.jpg" class="template4" alt="Snow" style="width:100%;max-width:200px">
+							<div id="myModal" class="modal">
+								<span class="close">&times;</span>
+  									<img class="modal-content" id="img01">
+  							</div>
+					</li>
+		
+
+					<li style="padding:10px;">
+						<input type="radio" id="template4" name="template" value="template4">
+						<label for="template4">Template 4 </label>
+					</li>
+			</div>
+
+
+		</div>
+
+		
+			
+
+
+		
+		<br>
+		<br>
+
+		<div style="display: inline-block;">
+
+		<button style="background:#fff; outline: none; color:#7299b3; height:35px; border-radius: 23px; border: none; padding:0 60px; text-align: center; font-size: 16px; margin:4px 2px;">Back</button>
+
+		<button style="background:#fff; outline: none; color:#7299b3; height:35px; border-radius: 23px; border: none; padding:0 45px; text-align: center; font-size: 16px; margin:4px 2px;">Continue</button>
+	</div>
+
+
+
+
+
+	</div>
+
+	</div>
+
+	<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var img2 = document.getElementById("myImg2");
+var img3 = document.getElementById("myImg3");
+var img4 = document.getElementById("myImg4");
+
+var modalImg = document.getElementById("img01");
+
+
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+}
+
+img2.onclick = function(){
+
+  modal.style.display = "block";
+  modalImg.src = this.src;
+
+}
+
+img3.onclick = function(){
+
+	modal.style.display = "block";
+	modalImg.src = this.src;
+}
+
+img4.onclick = function(){
+	modal.style.display = "block";
+	modalImg.src = this.src;
+
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
+
+		
+</body>
+</html>
